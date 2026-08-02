@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;550;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Outfit", "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-signature: "Caveat", cursive;
+  
+  --color-brand-bg: var(--season-bg);
+  --color-brand-card: var(--season-card);
+  --color-brand-cyan: var(--season-primary);
+  --color-brand-emerald: var(--season-secondary);
+  --color-brand-purple: var(--season-accent);
+}
+
+:root {
+  /* Default/Original gorgeous midnight blue motif matching the screenshot */
+  --season-bg: #070e20;
+  --season-card: #0c152a;
+  --season-primary: #38bdf8;
+  --season-secondary: #0ea5e9;
+  --season-accent: #6366f1;
+  --season-glow-1: rgba(56, 189, 248, 0.12);
+  --season-glow-2: rgba(99, 102, 241, 0.08);
+  --season-grid: rgba(56, 189, 248, 0.02);
+}
+
+.season-summer {
+  --season-bg: #07071a;
+  --season-card: #0e0d26;
+  --season-primary: #fbbf24;
+  --season-secondary: #f97316;
+  --season-accent: #ec4899;
+  --season-glow-1: rgba(249, 115, 22, 0.15);
+  --season-glow-2: rgba(236, 72, 153, 0.1);
+  --season-grid: rgba(249, 115, 22, 0.025);
+}
+
+.season-winter {
+  --season-bg: #030712;
+  --season-card: #0a1126;
+  --season-primary: #38bdf8;
+  --season-secondary: #0284c7;
+  --season-accent: #e0f2fe;
+  --season-glow-1: rgba(56, 189, 248, 0.15);
+  --season-glow-2: rgba(99, 102, 241, 0.1);
+  --season-grid: rgba(56, 189, 248, 0.025);
+}
+
+.season-spring {
+  --season-bg: #020d0c;
+  --season-card: #051b18;
+  --season-primary: #10b981;
+  --season-secondary: #34d399;
+  --season-accent: #f472b6;
+  --season-glow-1: rgba(16, 185, 129, 0.15);
+  --season-glow-2: rgba(244, 114, 182, 0.1);
+  --season-grid: rgba(16, 185, 129, 0.025);
+}
+
+.season-autumn {
+  --season-bg: #0c0704;
+  --season-card: #19100a;
+  --season-primary: #f97316;
+  --season-secondary: #d97706;
+  --season-accent: #eab308;
+  --season-glow-1: rgba(249, 115, 22, 0.15);
+  --season-glow-2: rgba(234, 179, 8, 0.1);
+  --season-grid: rgba(249, 115, 22, 0.025);
+}
+
+.season-monsoon {
+  --season-bg: #060b13;
+  --season-card: #0c121e;
+  --season-primary: #38bdf8;
+  --season-secondary: #0ea5e9;
+  --season-accent: #60a5fa;
+  --season-glow-1: rgba(56, 189, 248, 0.15);
+  --season-glow-2: rgba(96, 165, 250, 0.10);
+  --season-grid: rgba(56, 189, 248, 0.025);
+}
+
+/* Custom scroll bar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--season-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--season-bg);
+  background-image: 
+    radial-gradient(circle at 50% -10%, var(--season-glow-1), transparent 50%),
+    radial-gradient(circle at 10% 80%, var(--season-glow-2), transparent 45%),
+    radial-gradient(circle at 90% 40%, var(--season-glow-1), transparent 40%);
+  background-attachment: fixed;
+  color: #f8fafc;
+  font-family: var(--font-sans);
+  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), background-image 0.8s ease;
+}
+
+.seasonal-grid-bg {
+  background-image: 
+    linear-gradient(to right, var(--season-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--season-grid) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  transition: background-image 0.8s ease;
+}
+
+@keyframes fall-and-sway {
+  0% {
+    transform: translateY(-5vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--float-opacity, 0.5);
+  }
+  90% {
+    opacity: var(--float-opacity, 0.5);
+  }
+  100% {
+    transform: translateY(105vh) translateX(var(--sway-distance, 60px)) rotate(var(--sway-rotation, 360deg));
+    opacity: 0;
+  }
+}
+
+.animate-fall-sway {
+  animation: fall-and-sway var(--fall-duration, 15s) linear infinite;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes flow-line {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+.animate-flow-line {
+  stroke-dasharray: 6, 10;
+  animation: flow-line 1.8s linear infinite;
+}
+
+/* Orbit Path Animation along the borders of the card */
+@keyframes orbit-path {
+  0% {
+    top: 0%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    top: 0%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    top: 100%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+  }
+  75% {
+    top: 100%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    top: 0%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.animate-orbit-python {
+  animation: orbit-path 35s linear infinite;
+  animation-delay: 0s;
+  will-change: top, left, transform;
+}
+.animate-orbit-excel {
+  animation: orbit-path 35s linear infinite;
+  animation-delay: -7s;
+  will-change: top, left, transform;
+}
+.animate-orbit-mysql {
+  animation: orbit-path 35s linear infinite;
+  animation-delay: -14s;
+  will-change: top, left, transform;
+}
+.animate-orbit-powerbi {
+  animation: orbit-path 35s linear infinite;
+  animation-delay: -21s;
+  will-change: top, left, transform;
+}
+.animate-orbit-tableau {
+  animation: orbit-path 35s linear infinite;
+  animation-delay: -28s;
+  will-change: top, left, transform;
+}
+
+/* Interactive & Dynamic Animated Border Beam */
+@keyframes border-flow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -100;
+  }
+}
+
+.animate-border-flow-1 {
+  stroke-dasharray: 5 100;
+  animation: border-flow 8s linear infinite;
+  opacity: 0.5; /* Increased base visibility */
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 3px #ec4899);
+  will-change: stroke-dashoffset;
+}
+
+.animate-border-flow-2 {
+  stroke-dasharray: 5 100;
+  animation: border-flow 8s linear infinite;
+  animation-delay: -4s; /* Starts exactly at the opposite corner (50% phase shift) */
+  opacity: 0.5; /* Increased base visibility */
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 3px #ec4899);
+  will-change: stroke-dashoffset;
+}
+
+.group:hover .animate-border-flow-1,
+.group:hover .animate-border-flow-2 {
+  opacity: 0.95; /* Bright glow on hover */
+  filter: drop-shadow(0 0 6px #ec4899) drop-shadow(0 0 2px #d946ef);
+}
+
+.border-beam-rect {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  x: 1px;
+  y: 1px;
+  rx: 24px;
+}
