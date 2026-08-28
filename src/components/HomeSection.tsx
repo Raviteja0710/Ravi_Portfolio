@@ -157,8 +157,7 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
           <a
             id="hero-download-resume-btn"
             href={personalInfo.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            download="Ravi_Resume_DA.pdf"
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-transparent hover:bg-white/5 border-2 border-slate-700 hover:border-slate-500 font-display font-medium text-slate-300 hover:text-white transition-all transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 cursor-pointer focus:outline-none"
           >
             <FileDown className="w-4 h-4" />
