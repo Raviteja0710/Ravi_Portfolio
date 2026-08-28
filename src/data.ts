@@ -26,7 +26,7 @@ export const personalInfo = {
   linkedinUrl: 'https://www.linkedin.com/in/raviteja017/',
   leetcodeUrl: 'https://leetcode.com/u/raviteja_0710/',
   hackerrankUrl: 'https://www.hackerrank.com/profile/raviteja_challa3',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: "/Ravi's_Resume_DA.pdf",
 };
 
 export const competencies = [
