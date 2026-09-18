@@ -113,8 +113,19 @@ export const experiences: ExperienceItem[] = [
     company: 'LetsUpgrade EdTech Pvt Ltd.',
     location: 'Remote',
     period: 'NOV 2025 - JAN 2026',
-    description: 'Actively promoted platform programs to increase engagement and traffic through diverse channels, word-of-mouth, and creative student-outreach strategies. Participated in structured peer ambassador activities to showcase professional competence and coordinate campus-level events.',
+    description: 'Actively promoted platform programs to drive engagement through diverse outreach channels. Coordinated campus-level peer initiatives and student community events.',
     skills: ['Community Leadership', 'Creative Marketing', 'Outreach Strategy', 'Campus Coordination'],
+    type: 'Ambassadorship',
+  },
+  {
+    id: 'exp-2',
+    role: 'Data Analytics Intern (Associate L1)',
+    company: 'Infotact Solutions',
+    location: 'Remote • Bengaluru, Karnataka',
+    period: 'SEP 2026 - DEC 2026',
+    description: 'Conducted exploratory data analysis (EDA) and cleaning using Python & SQL. Developed interactive dashboards in Power BI & Tableau and automated analytical reporting workflows.',
+    skills: ['Data Analytics', 'Python', 'SQL', 'Power BI', 'EDA', 'Tableau', 'Excel', 'ETL Pipelines'],
+    type: 'Internship',
   },
 ];
 

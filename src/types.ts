@@ -41,7 +41,9 @@ export interface ExperienceItem {
   period: string;
   description: string;
   skills: string[];
-  type?: string; 
+  type?: string;
+  docType?: 'infotact' | 'letsupgrade';
+  hasDocument?: boolean;
 }
 
 export interface EducationItem {
