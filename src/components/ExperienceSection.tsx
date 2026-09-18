@@ -17,7 +17,7 @@ export default function ExperienceSection() {
           <span className="text-xs font-mono font-bold tracking-widest text-brand-cyan uppercase block mb-2">
             CAREER PIPELINE
           </span>
-          <h2 className="font-display font-extrabold text-3xl md:text-4xl text-white tracking-tight">
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl text-white tracking-tight">
             Work <span className="bg-gradient-to-r from-brand-cyan to-blue-400 bg-clip-text text-transparent">Experience</span>
           </h2>
           <div className="w-16 h-[3px] bg-brand-cyan mt-3 mb-3" />
